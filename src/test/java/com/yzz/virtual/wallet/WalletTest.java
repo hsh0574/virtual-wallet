@@ -36,7 +36,7 @@ public class WalletTest {
 	//修改支付密码
 	//@Test
 	public void changePaypwd(){
-		System.out.println(CoinHandler.changePaypwd("15381901840", null, "1234567"));
+		System.out.println(CoinHandler.changePaypwd("15381901840", null, "123456"));
 	}
 	
 	
