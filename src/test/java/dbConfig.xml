@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--  <!DOCTYPE yofogo SYSTEM "config/dbConfig-2.0.dtd">-->
+<yofogo>
+	<dataSource name="ssweixin" refreshPool="10000" dialect="MySQL">
+		<pool name="sswx_write1" driverClassName="com.mysql.jdbc.Driver"
+			url="jdbc:mysql://172.16.19.99:3306/ssweixin?useUnicode=true&amp;characterEncoding=utf8"
+			username="root" password="root" initActive="1" increase="2"
+			maxActive="20" maxIdle="2" maxWait="3000">
+		</pool>
+		<pool name="sswx_read1" driverClassName="com.mysql.jdbc.Driver"
+			url="jdbc:mysql://172.16.19.99:3306/ssweixin?useUnicode=true&amp;characterEncoding=utf8"
+			username="root" password="root" initActive="1" increase="2"
+			maxActive="20" maxIdle="2" maxWait="3000">
+		</pool>
+		<pool name="archives_read1" driverClassName="com.mysql.jdbc.Driver"
+			url="jdbc:mysql://172.16.19.99:3306/archives_ssweixin?useUnicode=true&amp;characterEncoding=utf8"
+			username="root" password="root" initActive="1" increase="2"
+			maxActive="20" maxIdle="2" maxWait="3000">
+		</pool>
+		<writePool loadMode="average" values="sswx_write1"></writePool>
+		<readPool loadMode="average" values="sswx_read1"></readPool>
+		<archivesPool loadMode="average" values="archives_read1"></archivesPool>
+	</dataSource>
+	<dataSource name="virtual" refreshPool="10000" dialect="MySQL">
+		<pool name="virtual_write1" driverClassName="com.mysql.jdbc.Driver"
+			url="jdbc:mysql://172.16.19.99:3306/yofoys_bean?useUnicode=true&amp;characterEncoding=utf8"
+			username="root" password="root" initActive="5" increase="2"
+			maxActive="100" maxIdle="10" maxWait="3000">
+		</pool>
+		<pool name="virtual_read1" driverClassName="com.mysql.jdbc.Driver"
+			url="jdbc:mysql://172.16.19.99:3306/yofoys_bean?useUnicode=true&amp;characterEncoding=utf8"
+			username="root" password="root" initActive="5" increase="2"
+			maxActive="100" maxIdle="10" maxWait="3000">
+		</pool>
+		<writePool loadMode="average" values="virtual_write1"></writePool>
+		<readPool loadMode="average" values="virtual_read1"></readPool>
+	</dataSource>
+	<listener start="flase">
+		<item name="db.error" value="1205" log="listener\deadlock" ></item>
+		<item name="db.overtime" value="6000" log="listener\overtime"></item>
+	</listener>
+	<logger path="C:\logs\virtual-wallet" name="virtual-wallet" console="true" default="INFO">
+	</logger>
+</yofogo>

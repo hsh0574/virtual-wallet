@@ -1,0 +1,5 @@
+prefix_withdraw_min:虚拟账户一天内可提现次数
+prefix_withdraw_day_count:虚拟账户一天内可提现次数
+prefix_withdraw_date_range:虚拟账户提现时间限制(type：0全部；1时间[小时]；2周；)
+prefix_withdraw_counter_fee:虚拟账户提现单笔手续费(type{1固定值；2百分比值})
+prefix_valid_moths:有效期时长（单位：月），即从获得日期起增加加X月。
